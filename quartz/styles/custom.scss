@@ -1,28 +1,31 @@
 @use "./base.scss";
 
-// put your custom CSS here!
-
-// Widen left sidebar to accommodate deep paths and long filenames
+// Wider left sidebar
 .page > .sidebar.left {
-  flex: 0 0 320px;
-  max-width: 320px;
+  flex: 0 0 340px;
+  max-width: 340px;
 }
 
-// Right sidebar: balanced width
+// Right sidebar
 .page > .sidebar.right {
   flex: 0 0 280px;
   max-width: 280px;
 }
 
-// Explorer: spacing, wrapping, and readability
+// Explorer: better spacing and text handling
 .explorer {
+  // Slightly smaller font to fit longer names
+  font-size: 0.9em;
+
   .folder-outer,
   .file-outer {
-    margin: 4px 0;
-    padding: 3px 6px;
+    margin: 3px 0;
+    padding: 2px 4px;
     border-radius: 4px;
+    // Only break at word boundaries, never mid-word
     overflow-wrap: break-word;
-    word-break: break-all;
+    word-break: normal;
+    hyphens: auto;
 
     &:hover {
       background: var(--highlight);
@@ -31,17 +34,17 @@
 
   a {
     display: inline-block;
-    padding: 3px 0;
+    padding: 2px 0;
     white-space: normal;
-    line-height: 1.5;
+    line-height: 1.4;
   }
 
   .folder-header {
-    padding: 4px 2px;
+    padding: 3px 2px;
   }
 }
 
-// Compact the graph view so it doesn't waste space
+// Compact graph
 .graph {
   max-height: 220px;
   overflow: hidden;
@@ -52,13 +55,11 @@
   }
 }
 
-// Reduce padding in sidebar sections
 .sidebar.left .sidebar-section,
 .sidebar.right .sidebar-section {
   margin-bottom: 0.5rem;
 }
 
-// Tighten TOC spacing
 #toc-content .overflow {
   max-height: 50vh;
 }
