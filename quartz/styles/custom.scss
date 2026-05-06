@@ -8,22 +8,36 @@
   max-width: 320px;
 }
 
-// Right sidebar: compact graph, balanced TOC
+// Right sidebar: balanced width
 .page > .sidebar.right {
   flex: 0 0 280px;
   max-width: 280px;
 }
 
-// Allow Explorer text to wrap instead of truncating
-.explorer .folder-outer,
-.explorer .file-outer {
-  overflow-wrap: break-word;
-  word-break: break-all;
+// Explorer: spacing, wrapping, and readability
+.explorer {
+  .folder-outer,
+  .file-outer {
+    margin: 4px 0;
+    padding: 3px 6px;
+    border-radius: 4px;
+    overflow-wrap: break-word;
+    word-break: break-all;
+
+    &:hover {
+      background: var(--highlight);
+    }
+  }
 
   a {
+    display: inline-block;
+    padding: 3px 0;
     white-space: normal;
-    line-height: 1.3;
-    padding: 2px 0;
+    line-height: 1.5;
+  }
+
+  .folder-header {
+    padding: 4px 2px;
   }
 }
 
@@ -38,7 +52,7 @@
   }
 }
 
-// Reduce padding in sidebar sections for compactness
+// Reduce padding in sidebar sections
 .sidebar.left .sidebar-section,
 .sidebar.right .sidebar-section {
   margin-bottom: 0.5rem;
